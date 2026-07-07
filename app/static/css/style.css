@@ -312,6 +312,8 @@ main {
   justify-content: center;
   align-items: center;
   position: relative;
+  /* Cria o espaço 3D para a inclinação do cartão */
+  perspective: 1200px;
 }
 
 .hero-card-mockup {
@@ -328,8 +330,20 @@ main {
   position: relative;
   overflow: hidden;
   border: 1px solid rgba(255, 255, 255, 0.1);
+  /* Flutuação contínua enquanto o mouse não interage */
+  animation: card-float 6s ease-in-out infinite;
+  transform-style: preserve-3d;
+  will-change: transform;
+  transition: box-shadow 0.3s ease;
 }
 
+/* Quando o JS assume o controle (hover), pausamos a flutuação */
+.hero-card-mockup.is-tilting {
+  animation: none;
+  box-shadow: 0 40px 80px -20px rgba(99, 102, 241, 0.45);
+}
+
+/* Brilho de fundo (glow suave) */
 .hero-card-mockup::before {
   content: '';
   position: absolute;
@@ -339,6 +353,53 @@ main {
   height: 200%;
   background: radial-gradient(circle, rgba(99, 102, 241, 0.15) 0%, transparent 60%);
   pointer-events: none;
+}
+
+/* Reflexo diagonal que varre o cartão periodicamente */
+.hero-card-mockup::after {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: -75%;
+  width: 50%;
+  height: 100%;
+  background: linear-gradient(
+    120deg,
+    transparent 0%,
+    rgba(255, 255, 255, 0.13) 50%,
+    transparent 100%
+  );
+  transform: skewX(-20deg);
+  pointer-events: none;
+  animation: card-shine 5s ease-in-out infinite;
+}
+
+@keyframes card-float {
+  0%, 100% {
+    transform: translateY(0) rotate(-1deg);
+  }
+  50% {
+    transform: translateY(-16px) rotate(1deg);
+  }
+}
+
+@keyframes card-shine {
+  0%, 100% {
+    left: -75%;
+  }
+  35%, 65% {
+    left: 130%;
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .hero-card-mockup {
+    animation: none;
+  }
+  .hero-card-mockup::after {
+    animation: none;
+    opacity: 0;
+  }
 }
 
 .card-top {
@@ -356,10 +417,33 @@ main {
 .card-chip {
   width: 45px;
   height: 35px;
-  background: linear-gradient(135deg, #e2e8f0 0%, #cbd5e1 100%);
+  background: linear-gradient(135deg, #f4d47a 0%, #d4a640 50%, #f4d47a 100%);
+  background-size: 200% 200%;
   border-radius: 6px;
   position: relative;
   overflow: hidden;
+  animation: chip-glint 3.5s ease-in-out infinite;
+}
+
+/* Linhas de contato do chip */
+.card-chip::before {
+  content: '';
+  position: absolute;
+  inset: 6px 4px;
+  border: 1px solid rgba(120, 90, 20, 0.4);
+  border-radius: 3px;
+  background:
+    linear-gradient(rgba(120, 90, 20, 0.4), rgba(120, 90, 20, 0.4)) center / 100% 1px no-repeat,
+    linear-gradient(rgba(120, 90, 20, 0.4), rgba(120, 90, 20, 0.4)) center / 1px 100% no-repeat;
+}
+
+@keyframes chip-glint {
+  0%, 100% {
+    background-position: 0% 50%;
+  }
+  50% {
+    background-position: 100% 50%;
+  }
 }
 
 .card-number {

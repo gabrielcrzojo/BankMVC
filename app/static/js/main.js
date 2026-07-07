@@ -86,6 +86,36 @@ document.addEventListener('DOMContentLoaded', () => {
     });
   }
 
+  // --- Inclinação 3D do cartão (segue o mouse) ---
+  const card = document.querySelector('.hero-card-mockup');
+  const prefersReducedMotion = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+
+  if (card && !prefersReducedMotion) {
+    const MAX_TILT = 12; // graus máximos de inclinação
+
+    card.addEventListener('mouseenter', () => {
+      card.classList.add('is-tilting');
+    });
+
+    card.addEventListener('mousemove', (e) => {
+      const rect = card.getBoundingClientRect();
+      // posição do mouse relativa ao centro do cartão (-0.5 a 0.5)
+      const px = (e.clientX - rect.left) / rect.width - 0.5;
+      const py = (e.clientY - rect.top) / rect.height - 0.5;
+
+      const rotateY = px * MAX_TILT * 2;
+      const rotateX = -py * MAX_TILT * 2;
+
+      card.style.transform =
+        `rotateX(${rotateX}deg) rotateY(${rotateY}deg) scale(1.05)`;
+    });
+
+    card.addEventListener('mouseleave', () => {
+      card.classList.remove('is-tilting');
+      card.style.transform = ''; // volta ao repouso e retoma a flutuação
+    });
+  }
+
   // --- Smooth Scroll (Dynamic check for relative links) ---
   document.querySelectorAll('a[href^="#"]').forEach(anchor => {
     anchor.addEventListener('click', function(e) {
