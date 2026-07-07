@@ -14,13 +14,25 @@ ctl = Application()
 def serve_static(filepath):
     return static_file(filepath, root='./app/static')
 
-@app.route('/helper')
-def helper(info= None):
-    return ctl.render('helper')
-
 
 #-----------------------------------------------------------------------------
 # Suas rotas aqui:
+
+@app.route('/')
+def home():
+    return ctl.render('home')
+
+@app.route('/sobre')
+def sobre():
+    return ctl.render('sobre')
+
+@app.route('/servicos')
+def servicos():
+    return ctl.render('servicos')
+
+@app.route('/contato')
+def contato():
+    return ctl.render('contato')
 
 
 
