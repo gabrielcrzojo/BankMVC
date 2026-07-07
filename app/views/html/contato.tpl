@@ -18,7 +18,7 @@
                 </div>
                 <div>
                     <h4 style="margin-bottom: 6px;">Endereço</h4>
-                    <p style="font-size: 0.9rem;">Campus Universitário Darcy Ribeiro, Asa Norte, Brasília - DF, CEP 70910-900</p>
+                    <p style="font-size: 0.9rem;">UnB - Campus do Gama, Brasília - DF</p>
                 </div>
             </div>
             
@@ -28,8 +28,7 @@
                 </div>
                 <div>
                     <h4 style="margin-bottom: 6px;">Telefone</h4>
-                    <p style="font-size: 0.9rem;">0800 123 4567 (Ligação Gratuita)</p>
-                    <p style="font-size: 0.9rem;">+55 (61) 3107-3300 (Geral)</p>
+                    <p style="font-size: 0.9rem;">+55(61)99172-4925</p>
                 </div>
             </div>
             
@@ -39,8 +38,7 @@
                 </div>
                 <div>
                     <h4 style="margin-bottom: 6px;">E-mail</h4>
-                    <p style="font-size: 0.9rem;">suporte@bmvcbank.com</p>
-                    <p style="font-size: 0.9rem;">parcerias@bmvcbank.com</p>
+                    <p style="font-size: 0.9rem;">suporte@bankmvc.com</p>
                 </div>
             </div>
         </div>

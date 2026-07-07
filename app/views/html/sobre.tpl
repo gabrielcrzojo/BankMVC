@@ -7,7 +7,7 @@
                 <i class="fa-solid fa-users"></i> Quem Somos
             </div>
             <h2>Nascemos para <span class="gradient-text">simplificar</span> sua vida financeira.</h2>
-            <p>O BMVC Bank foi criado como parte de um projeto acadêmico incremental na Universidade de Brasília (UnB), projetado para ilustrar na prática o poder da arquitetura MVC (Model-View-Controller) aplicada a sistemas de missão crítica, como bancos digitais.</p>
+            <p>O BankMVC foi criado como parte de um projeto acadêmico incremental na Universidade de Brasília (UnB), projetado para ilustrar na prática o poder da arquitetura MVC (Model-View-Controller) aplicada a sistemas de missão crítica, como bancos digitais.</p>
             <p>Nossa missão é demonstrar que a complexidade de transações financeiras e dados sensíveis de usuários pode ser gerenciada com elegância, modularidade e clareza de código. Acreditamos que a tecnologia deve ser transparente e acessível.</p>
             
             <div class="stats-container">
@@ -29,7 +29,7 @@
         <div class="about-img-container">
             <div class="hero-card-mockup" style="transform: rotate(-5deg); height: 260px; width: 340px; margin-bottom: 20px;">
                 <div class="card-top">
-                    <span class="card-brand">BMVC Tech</span>
+                    <span class="card-brand">BankMVC</span>
                     <i class="fa-solid fa-microchip" style="font-size: 1.5rem;"></i>
                 </div>
                 <p style="color: white; font-size: 0.95rem; line-height: 1.4;">"A simplicidade é o último grau da sofisticação."</p>

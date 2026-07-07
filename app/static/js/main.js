@@ -1,5 +1,5 @@
 /**
- * BMVC Bank - Main JavaScript Interactions
+ * BankMVC - Main JavaScript Interactions
  * Implementation for Nível 1 specifications
  */
 

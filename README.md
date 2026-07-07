@@ -1,6 +1,6 @@
-# BMVC Bank - Nível I: Landing Page Institucional
+# BankMVC - Nível I: Landing Page Institucional
 
-O **BMVC Bank** é um projeto de simulação de banco digital desenvolvido de forma incremental utilizando a arquitetura **MVC (Model-View-Controller)** com o framework **Bottle** para Python. 
+O **BankMVC** é um projeto de simulação de banco digital desenvolvido de forma incremental utilizando a arquitetura **MVC (Model-View-Controller)** com o framework **Bottle** para Python. 
 
 Este repositório contém a implementação do **Nível I (Landing Page Institucional)**, que consiste em servir páginas estáticas institucionais responsivas e dinâmicas a partir de um servidor Bottle, com foco em uma experiência do usuário premium, com animações e suporte a modo escuro persistente.
 

@@ -1,6 +1,6 @@
 # Documentação de Alterações e Instruções de Código - Nível I
 
-Este documento detalha o desenvolvimento do **Nível I (Landing Page Institucional)** para o projeto **BMVC Bank**, explicando a arquitetura implementada, decisões de design, correções técnicas e fornecendo instruções sobre a estrutura de código.
+Este documento detalha o desenvolvimento do **Nível I (Landing Page Institucional)** para o projeto **BankMVC**, explicando a arquitetura implementada, decisões de design, correções técnicas e fornecendo instruções sobre a estrutura de código.
 
 ---
 
@@ -18,7 +18,7 @@ Este documento detalha o desenvolvimento do **Nível I (Landing Page Institucion
 ### 2. Apresentação (Views / TPL)
 Criamos um sistema de templates baseado em herança usando o motor *SimpleTemplate* do Bottle:
 - **[base.tpl](file:///home/gabriel/Python/bmvc/app/views/html/base.tpl):** Layout base contendo os metadados, links externos (Google Fonts, FontAwesome), cabeçalho com navegação fluida, footer responsivo e carregamento assíncrono de arquivos estáticos.
-- **[home.tpl](file:///home/gabriel/Python/bmvc/app/views/html/home.tpl):** Contém a seção de Hero com o slogan, chamada para ação, destaques dinâmicos de recursos e uma representação visual premium de um cartão de crédito (`BMVC Black`).
+- **[home.tpl](file:///home/gabriel/Python/bmvc/app/views/html/home.tpl):** Contém a seção de Hero com o slogan, chamada para ação, destaques dinâmicos de recursos e uma representação visual premium de um cartão de crédito (`BankMVC Black`).
 - **[sobre.tpl](file:///home/gabriel/Python/bmvc/app/views/html/sobre.tpl):** Apresenta indicadores estatísticos do banco e os três valores institucionais pilares.
 - **[servicos.tpl](file:///home/gabriel/Python/bmvc/app/views/html/servicos.tpl):** Grid responsivo detalhando os 6 principais serviços digitais.
 - **[contato.tpl](file:///home/gabriel/Python/bmvc/app/views/html/contato.tpl):** Layout com informações físicas de contato e um formulário de envio integrado com validações básicas.

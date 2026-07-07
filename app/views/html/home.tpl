@@ -7,7 +7,7 @@
             <i class="fa-solid fa-sparkles"></i> Bem-vindo ao Futuro das Finanças
         </div>
         <h1 class="hero-title">O banco inteligente na velocidade do seu <span class="gradient-text">negócio</span>.</h1>
-        <p class="hero-subtitle">Experimente o BMVC Bank, a conta digital que une simplicidade, segurança e controle total. Sem tarifas ocultas, com Pix instantâneo e rendimento superior à poupança.</p>
+        <p class="hero-subtitle">Experimente o BankMVC, a conta digital que une simplicidade, segurança e controle total. Sem tarifas ocultas, com Pix instantâneo e rendimento superior à poupança.</p>
         <div class="hero-btns">
             <button class="btn btn-primary">Abra sua Conta Grátis</button>
             <a href="/sobre" class="btn btn-secondary">Saiba Mais</a>
@@ -17,14 +17,14 @@
     <div class="hero-visual">
         <div class="hero-card-mockup">
             <div class="card-top">
-                <span class="card-brand">BMVC Black</span>
+                <span class="card-brand">BankMVC</span>
                 <div class="card-chip"></div>
             </div>
             <div class="card-number">4000 1234 5678 9010</div>
             <div class="card-bottom">
                 <div>
                     <div style="font-size: 0.6rem; opacity: 0.6;">Titular</div>
-                    <div class="card-holder">Gabriel UnB</div>
+                    <div class="card-holder">Gabriel</div>
                 </div>
                 <div>
                     <div style="font-size: 0.6rem; opacity: 0.6;">Validade</div>
@@ -38,7 +38,7 @@
 <!-- Features Highlight Section -->
 <section class="container">
     <div class="section-header">
-        <h2>Por que escolher o <span class="gradient-text">BMVC Bank</span>?</h2>
+        <h2>Por que escolher o <span class="gradient-text">BankMVC</span>?</h2>
         <p>Desenvolvido para atender suas necessidades cotidianas e objetivos financeiros com tecnologia de ponta.</p>
     </div>
     
