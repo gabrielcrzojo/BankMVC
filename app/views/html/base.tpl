@@ -25,6 +25,8 @@
 
         <ul class="nav-links" id="nav-links">
             <li><a href="/" class="{{'active' if active_page == 'home' else ''}}">Home</a></li>
+            <li><a href="/contas" class="{{'active' if active_page == 'contas' else ''}}">Contas</a></li>
+            <li><a href="/transacoes" class="{{'active' if active_page == 'transacoes' else ''}}">Transações</a></li>
             <li><a href="/sobre" class="{{'active' if active_page == 'sobre' else ''}}">Sobre Nós</a></li>
             <li><a href="/servicos" class="{{'active' if active_page == 'servicos' else ''}}">Serviços</a></li>
             <li><a href="/contato" class="{{'active' if active_page == 'contato' else ''}}">Contato</a></li>
@@ -99,5 +101,6 @@
 
     <!-- Scripts -->
     <script src="/static/js/main.js"></script>
+    <script src="/static/js/crud.js"></script>
 </body>
 </html>

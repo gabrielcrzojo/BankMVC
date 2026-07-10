@@ -1,10 +1,14 @@
 from app.controllers.application import Application
+from app.controllers.conta_controller import ContaController
+from app.controllers.transacao_controller import TransacaoController
 from bottle import Bottle, route, run, request, static_file
 from bottle import redirect, template, response
 
 
 app = Bottle()
 ctl = Application()
+conta_ctl = ContaController()
+transacao_ctl = TransacaoController()
 
 
 #-----------------------------------------------------------------------------
@@ -34,7 +38,29 @@ def servicos():
 def contato():
     return ctl.render('contato')
 
+@app.route('/contas')
+def contas():
+    return conta_ctl.index()
 
+@app.route('/contas/nova', method=['GET', 'POST'])
+def contas_nova():
+    return conta_ctl.create()
+
+@app.route('/contas/deletar/<conta_id:int>', method=['POST', 'GET'])
+def contas_deletar(conta_id):
+    return conta_ctl.delete(conta_id)
+
+@app.route('/contas/editar/<conta_id:int>', method=['GET', 'POST'])
+def contas_editar(conta_id):
+    return conta_ctl.edit(conta_id)
+
+@app.route('/transacoes')
+def transacoes():
+    return transacao_ctl.index()
+
+@app.route('/transacoes/nova', method=['GET', 'POST'])
+def transacoes_nova():
+    return transacao_ctl.create()
 
 #-----------------------------------------------------------------------------
 

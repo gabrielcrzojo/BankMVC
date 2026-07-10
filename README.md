@@ -1,14 +1,14 @@
-# BankMVC - Nível I: Landing Page Institucional
+# BankMVC - Banco Digital
 
 O **BankMVC** é um projeto de simulação de banco digital desenvolvido de forma incremental utilizando a arquitetura **MVC (Model-View-Controller)** com o framework **Bottle** para Python. 
 
-Este repositório contém a implementação do **Nível I (Landing Page Institucional)**, que consiste em servir páginas estáticas institucionais responsivas e dinâmicas a partir de um servidor Bottle, com foco em uma experiência do usuário premium, com animações e suporte a modo escuro persistente.
+Atualmente, o projeto abrange até o **Nível II (CRUD de Contas e Transações)**, suportando páginas estáticas institucionais responsivas, persistência em banco de dados SQLite e operações transacionais seguras.
 
 ---
 
 ## 🛠️ Tecnologias Utilizadas
 
-- **Backend**: Python 3.12, Bottle Framework
+- **Backend**: Python 3.12, Bottle Framework, SQLite (Persistência)
 - **Frontend**: HTML5 (SimpleTemplate Engine), CSS3 (Custom styling com variáveis CSS), JavaScript moderno (Vanilla ES6)
 - **Containerização**: Docker (imagem base `python:3.12-slim`)
 
@@ -20,21 +20,25 @@ Este repositório contém a implementação do **Nível I (Landing Page Instituc
 bmvc/
 ├── app/
 │   ├── controllers/
-│   │   ├── application.py   # Controlador principal (repassa renderizações)
+│   │   ├── application.py         # Controlador base
+│   │   ├── conta_controller.py    # Lógica de Contas
+│   │   └── transacao_controller.py# Lógica de Transações
+│   ├── models/
+│   │   ├── conta.py               # Persistência e regras de Contas
+│   │   └── transacao.py           # Persistência e regras de Transações
 │   ├── views/
 │   │   └── html/
-│   │       ├── base.tpl     # Layout base comum (navbar, footer, css/js links)
-│   │       ├── home.tpl     # Página inicial (Hero, Destaques, Card Mockup)
-│   │       ├── sobre.tpl    # Página "Sobre Nós" (Valores, Estatísticas)
-│   │       ├── servicos.tpl # Página de Serviços (Lista de recursos da conta)
-│   │       └── contato.tpl  # Página de Contato (Informações e Formulário)
+│   │       ├── base.tpl
+│   │       ├── home.tpl, sobre.tpl, servicos.tpl, contato.tpl
+│   │       ├── contas_list.tpl, contas_form.tpl
+│   │       └── transacoes_list.tpl, transacoes_form.tpl
 │   └── static/
-│       ├── css/
-│       │   └── style.css    # Design System centralizado (Variáveis, Dark Mode, Responsividade)
-│       ├── js/
-│       │   └── main.js      # Scripts de interatividade (Tema escuro, Hamburguer, Scroll)
-│       └── img/
-│           └── BottleLogo.png
+│       ├── css/style.css
+│       ├── js/main.js, crud.js
+│       └── img/BottleLogo.png
+├── database/
+│   ├── db_init.py           # Script para inicializar DB SQLite
+│   └── bmvc.db              # Banco de dados (gerado pós-inicialização)
 ├── Dockerfile               # Configuração da imagem Docker
 ├── route.py                 # Ponto de entrada (Router)
 ├── README.md                # Instruções Gerais de Uso
@@ -88,11 +92,16 @@ Caso prefira rodar diretamente na máquina sem Docker, certifique-se de ter o Py
    pip install bottle eventlet python-socketio reportlab jinja2 pytz filelock
    ```
 
-2. **Iniciar a Aplicação:**
+2. **Inicializar Banco de Dados (Apenas 1ª Vez):**
+   ```bash
+   python database/db_init.py
+   ```
+
+3. **Iniciar a Aplicação:**
    Execute o roteador na raiz do projeto:
    ```bash
    python route.py
    ```
 
-3. **Acessar a Aplicação:**
+4. **Acessar a Aplicação:**
    Navegue para [http://localhost:8080](http://localhost:8080) no seu navegador.
