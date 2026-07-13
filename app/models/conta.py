@@ -38,6 +38,15 @@ class ContaModel:
         return dict(row) if row else None
 
     @classmethod
+    def get_by_usuario(cls, usuario_id):
+        conn = cls.get_connection()
+        cursor = conn.cursor()
+        cursor.execute("SELECT * FROM Conta WHERE usuario_id = ?", (usuario_id,))
+        rows = cursor.fetchall()
+        conn.close()
+        return [dict(row) for row in rows]
+
+    @classmethod
     def create(cls, numero_conta, usuario_id, nome='', sobrenome='', saldo_inicial=0.0):
         conn = cls.get_connection()
         cursor = conn.cursor()

@@ -1,5 +1,5 @@
 from bottle import template
-
+from app.utils.auth import get_current_user
 
 class Application():
 
@@ -11,25 +11,20 @@ class Application():
             'contato': self.contato,
         }
 
-
     def render(self, page, **kwargs):
         content = self.pages.get(page, self.home)
         return content(**kwargs)
 
-
     def home(self):
-        return template('app/views/html/home')
-
+        return template('app/views/html/home', user=get_current_user())
 
     def sobre(self):
-        return template('app/views/html/sobre')
-
+        return template('app/views/html/sobre', user=get_current_user())
 
     def servicos(self):
-        return template('app/views/html/servicos')
-
+        return template('app/views/html/servicos', user=get_current_user())
 
     def contato(self):
-        return template('app/views/html/contato')
+        return template('app/views/html/contato', user=get_current_user())
 
 

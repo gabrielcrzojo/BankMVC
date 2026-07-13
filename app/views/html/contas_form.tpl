@@ -16,15 +16,7 @@
         % end
 
         <form action="{{'/contas/editar/' + str(conta['id']) if conta else '/contas/nova'}}" method="POST" class="contact-form">
-            <div class="form-group">
-                <label for="nome">Nome do Titular</label>
-                <input type="text" id="nome" name="nome" placeholder="Ex: João" value="{{conta['nome'] if conta else ''}}" required>
-            </div>
-            
-            <div class="form-group">
-                <label for="sobrenome">Sobrenome do Titular</label>
-                <input type="text" id="sobrenome" name="sobrenome" placeholder="Ex: Silva" value="{{conta['sobrenome'] if conta else ''}}" required>
-            </div>
+            <!-- O nome do titular agora é derivado do usuário logado -->
 
             <div class="form-group">
                 <label for="numero_conta">Número da Conta</label>

@@ -47,13 +47,21 @@ def init_db():
     )
     ''')
 
-    # Criar um usuário mock (padrão) para usar no Nível II, já que não temos Auth completa ainda.
+    # Criar usuários iniciais
+    cursor.execute('SELECT id FROM Usuario WHERE email = ?', ('admin@bankmvc.com',))
+    if not cursor.fetchone():
+        cursor.execute('''
+        INSERT INTO Usuario (nome, email, senha_hash, tipo)
+        VALUES (?, ?, ?, ?)
+        ''', ('Administrador', 'admin@bankmvc.com', 'admin', 'admin'))
+        print("Usuário administrador criado com sucesso!")
+
     cursor.execute('SELECT id FROM Usuario WHERE email = ?', ('gabriel@bankmvc.com',))
     if not cursor.fetchone():
         cursor.execute('''
         INSERT INTO Usuario (nome, email, senha_hash, tipo)
         VALUES (?, ?, ?, ?)
-        ''', ('Gabriel Padrão', 'gabriel@bankmvc.com', 'hash_mock', 'cliente'))
+        ''', ('Gabriel Padrão', 'gabriel@bankmvc.com', '123456', 'cliente'))
         print("Usuário padrão criado com sucesso!")
 
     conn.commit()

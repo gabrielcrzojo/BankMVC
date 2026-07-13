@@ -35,7 +35,7 @@
                 <label for="conta_origem">Conta de Origem</label>
                 <select id="conta_origem" name="conta_origem">
                     <option value="">Selecione uma conta...</option>
-                    % for c in contas:
+                    % for c in contas_usuario:
                     <option value="{{c['id']}}">{{c['numero_conta']}} (Saldo: R$ {{"%.2f" % c['saldo']}})</option>
                     % end
                 </select>

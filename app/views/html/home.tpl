@@ -9,7 +9,7 @@
         <h1 class="hero-title">O banco inteligente na velocidade do seu <span class="gradient-text">negócio</span>.</h1>
         <p class="hero-subtitle">Experimente o BankMVC, a conta digital que une simplicidade, segurança e controle total. Sem tarifas ocultas, com Pix instantâneo e rendimento superior à poupança.</p>
         <div class="hero-btns">
-            <button class="btn btn-primary">Abra sua Conta Grátis</button>
+            <a href="/cadastro" class="btn btn-primary">Abra sua Conta Grátis</a>
             <a href="/sobre" class="btn btn-secondary">Saiba Mais</a>
         </div>
     </div>

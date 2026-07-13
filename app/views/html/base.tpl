@@ -15,6 +15,15 @@
     <link rel="stylesheet" type="text/css" href="/static/css/style.css">
 </head>
 <body>
+    <script>
+        (function() {
+            var savedTheme = localStorage.getItem('theme');
+            var systemPrefersDark = window.matchMedia('(prefers-color-scheme: dark)').matches;
+            if (savedTheme === 'dark' || (!savedTheme && systemPrefersDark)) {
+                document.body.classList.add('dark-mode');
+            }
+        })();
+    </script>
 
     <!-- Navbar -->
     <nav class="navbar">
@@ -36,9 +45,18 @@
             <button class="btn-icon" id="theme-toggle" aria-label="Toggle Theme">
                 <i class="fa-solid fa-moon"></i>
             </button>
-            <button class="btn btn-primary">
-                Login <i class="fa-solid fa-arrow-right"></i>
-            </button>
+            % if defined('user') and user:
+                <a href="/dashboard" class="btn btn-secondary" style="margin-right: 10px; padding: 10px 15px;">
+                    <i class="fa-solid fa-chart-line"></i> Dashboard
+                </a>
+                <a href="/logout" class="btn btn-primary" style="padding: 10px 15px;">
+                    Sair <i class="fa-solid fa-arrow-right-from-bracket"></i>
+                </a>
+            % else:
+                <a href="/login" class="btn btn-primary" style="padding: 10px 15px;">
+                    Login <i class="fa-solid fa-arrow-right"></i>
+                </a>
+            % end
         </div>
 
         <div class="hamburger" id="hamburger">

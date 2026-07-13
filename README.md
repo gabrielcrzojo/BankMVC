@@ -2,7 +2,7 @@
 
 O **BankMVC** é um projeto de simulação de banco digital desenvolvido de forma incremental utilizando a arquitetura **MVC (Model-View-Controller)** com o framework **Bottle** para Python. 
 
-Atualmente, o projeto abrange até o **Nível II (CRUD de Contas e Transações)**, suportando páginas estáticas institucionais responsivas, persistência em banco de dados SQLite e operações transacionais seguras.
+Atualmente, o projeto abrange até o **Nível III (Autenticação e Dashboard)**, suportando páginas estáticas institucionais responsivas, persistência em banco de dados SQLite, operações transacionais seguras e gestão de sessão de usuários (login/logout e áreas restritas).
 
 ---
 
@@ -14,22 +14,28 @@ Atualmente, o projeto abrange até o **Nível II (CRUD de Contas e Transações)
 
 ---
 
-## 📁 Estrutura do Projeto (Nível I)
+## 📁 Estrutura do Projeto (Nível III)
 
 ```text
 bmvc/
 ├── app/
 │   ├── controllers/
 │   │   ├── application.py         # Controlador base
+│   │   ├── auth_controller.py     # Lógica de Login/Cadastro
 │   │   ├── conta_controller.py    # Lógica de Contas
+│   │   ├── dashboard_controller.py# Lógica do Painel do Usuário
 │   │   └── transacao_controller.py# Lógica de Transações
 │   ├── models/
 │   │   ├── conta.py               # Persistência e regras de Contas
-│   │   └── transacao.py           # Persistência e regras de Transações
+│   │   ├── transacao.py           # Persistência e regras de Transações
+│   │   └── usuario.py             # Persistência e regras de Autenticação
+│   ├── utils/
+│   │   └── auth.py                # Decorators para proteção de rotas
 │   ├── views/
 │   │   └── html/
 │   │       ├── base.tpl
 │   │       ├── home.tpl, sobre.tpl, servicos.tpl, contato.tpl
+│   │       ├── login.tpl, cadastro.tpl, dashboard.tpl
 │   │       ├── contas_list.tpl, contas_form.tpl
 │   │       └── transacoes_list.tpl, transacoes_form.tpl
 │   └── static/
@@ -40,9 +46,11 @@ bmvc/
 │   ├── db_init.py           # Script para inicializar DB SQLite
 │   └── bmvc.db              # Banco de dados (gerado pós-inicialização)
 ├── Dockerfile               # Configuração da imagem Docker
-├── route.py                 # Ponto de entrada (Router)
+├── route.py                 # Ponto de entrada (Router e Configuração de Middlewares)
 ├── README.md                # Instruções Gerais de Uso
-└── lvl1.md                  # Relatório de Alterações do Nível I
+├── lvl1.md                  # Relatório de Alterações do Nível I
+├── lvl2.md                  # Relatório de Alterações do Nível II
+└── lvl3.md                  # Relatório de Alterações do Nível III
 ```
 
 ---

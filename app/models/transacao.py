@@ -29,6 +29,21 @@ class TransacaoModel:
         return [dict(row) for row in rows]
 
     @classmethod
+    def get_by_usuario(cls, usuario_id):
+        conn = cls.get_connection()
+        cursor = conn.cursor()
+        cursor.execute("""
+            SELECT t.* FROM Transacao t
+            LEFT JOIN Conta co ON t.conta_origem = co.id
+            LEFT JOIN Conta cd ON t.conta_destino = cd.id
+            WHERE co.usuario_id = ? OR cd.usuario_id = ?
+            ORDER BY t.data_hora DESC
+        """, (usuario_id, usuario_id))
+        rows = cursor.fetchall()
+        conn.close()
+        return [dict(row) for row in rows]
+
+    @classmethod
     def depositar(cls, conta_destino_id, valor, descricao="Depósito"):
         if valor <= 0:
             return False, "Valor inválido"
